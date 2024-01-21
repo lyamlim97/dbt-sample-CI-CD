@@ -1,0 +1,26 @@
+dbt_sample_ci_cd:
+  target: dev # default target
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: example-project-410615
+      dataset: dbt_dev
+      threads: 60
+      timeout_seconds: 300
+      location: eu
+      impersonate_service_account: dbt-run@adroit-poet-410616.iam.gserviceaccount.com
+      priority: interactive
+      retries: 1
+
+    prod:
+      type: bigquery
+      method: oauth
+      project: example-project-410615
+      dataset: dbt_prod
+      threads: 60
+      timeout_seconds: 300
+      location: eu
+      impersonate_service_account: dbt-run@adroit-poet-410616.iam.gserviceaccount.com
+      priority: interactive
+      retries: 1
